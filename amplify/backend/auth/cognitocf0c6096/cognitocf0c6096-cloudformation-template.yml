@@ -317,9 +317,14 @@ Resources:
       ServiceToken: !GetAtt UserPoolClientLambda.Arn
       clientId: !Ref UserPoolClient
       userpoolId: !Ref UserPool
-    DependsOn: UserPoolClientLogPolicy
-  
-    
+    DependsOn:
+      - UserPool
+      - UserPoolClient
+      - UserPoolClientRole
+      - UserPoolClientLambda
+      - UserPoolClientLambdaPolicy
+      - UserPoolClientLogPolicy
+      
   # BEGIN IDENTITY POOL RESOURCES
   
   
